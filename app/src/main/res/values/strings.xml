@@ -1,5 +1,22 @@
 <resources>
     <string name="app_name">Sophor - সফর </string>
-    <string name="nav_open">Open</string>
-    <string name="nav_close">Close</string>
+
+    <string name="dailyPlan">\n<b>Day 1</b>\n\nCoxs Bazar is one of the longest sea beaches in the world. Its a sandy beach with an unbroken 155 Km length. There are large number of hotels, resorts, guest houses,
+ motels and restaurants have been established in the city.\n\n<b>Day 2</b>\n\nCoxs Bazar is one of the longest sea beaches in the world. Its a sandy beach with an unbroken 155 Km length. There are large number of hotels, resorts, guest houses,
+ motels and restaurants have been established in the city.\n\n<b>Day 3</b>\n\nCoxs Bazar is one of the longest sea beaches in the world. Its a sandy beach with an unbroken 155 Km length. There are large number of hotels, resorts, guest houses,
+ motels and restaurants have been established in the city.</string>
+    <string name="inclusion">✔ All Entry Tickets of Hopping Destinations\n✔ Welcome Breakfast\n✔ Lunch Platter\n✔ Evening Snacks\n✔ Washroom\n✔ Library\n✔ WIFI\n✔ Guide\n✔ Wrist band\n✔ First Aid Kit (In case of emergency)\n</string>
+
+    <string name="exlusion">✕ Personal expenses\n✕ Anything else that isnt mentioned on Inclusions\n</string>
+    <string name="policy">\n<b>Cancellation</b>\n\nTo cancel any tour, an email has to be sent to tours@sophor.com mentioning the tour booking ID and details about the cancellation.
+The time of sending the email will be considered as the time of cancellation.
+The email will be considered as the final application for cancellation. A phone call to the Sophor hotline number or any other team member of Go Zayaan will not be considered as a request for cancellation.
+
+\n\n<b>Refund</b>\n\nThe full amount of the tour fee will be refunded if the booking is canceled twenty-four (24) hours prior to the start of the experience/tour.
+No refund will be provided if the booking is canceled less than twenty-four (24) hours prior to the start of the experience/tour.
+Convenience fee is non-refundable and will be deducted from the paid amount.
+All refunds will be processed within seven (7) working days.
+        \n\n<b>Child Policy</b>\n\nNo charge will be applied for kids below three (3) years old.
+BDT 1,599 has to be paid for anyone between three (3) and seven (7) years old.
+Full price has to be paid for anyone who is seven (7) years old.</string>
 </resources>
