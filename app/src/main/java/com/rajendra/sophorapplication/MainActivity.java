@@ -1,45 +1,102 @@
-package com.rajendra.vacationtourapp;
+package com.rajendra.sophorapplication;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
-
-import com.rajendra.vacationtourapp.adapter.RecentsAdapter;
-import com.rajendra.vacationtourapp.adapter.TopPlacesAdapter;
-import com.rajendra.vacationtourapp.model.RecentsData;
-import com.rajendra.vacationtourapp.model.TopPlacesData;
+import com.rajendra.sophorapplication.adapter.RecentsAdapter;
+import com.rajendra.sophorapplication.adapter.TopPlacesAdapter;
+import com.rajendra.sophorapplication.model.RecentsData;
+import com.rajendra.sophorapplication.model.TopPlacesData;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.RecursiveAction;
 
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recentRecycler, topPlacesRecycler;
     RecentsAdapter recentsAdapter;
     TopPlacesAdapter topPlacesAdapter;
+    LinearLayout home_linear,bus_linear,hotel_linear,guide_linear,profile_linear;
 
-    private ImageButton bus_book;
+    private ImageView home_icon,bus_book,hotel_icon;
+    private TextView home_text,hotel_text,bus_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        home_icon=findViewById(R.id.home_icon);
         bus_book=findViewById(R.id.bus_book);
+        hotel_icon=findViewById(R.id.hotel_icon);
 
-        bus_book.setOnClickListener(new View.OnClickListener() {
+        //Text View
+        home_text=findViewById(R.id.home_text);
+        hotel_text=findViewById(R.id.hotel_text);
+        bus_text=findViewById(R.id.bus_text);
+
+        home_linear=(LinearLayout) findViewById(R.id.home_linear);
+        bus_linear=(LinearLayout) findViewById(R.id.bus_linear);
+        hotel_linear=(LinearLayout)findViewById(R.id.hotel_linear);
+        guide_linear=(LinearLayout)findViewById(R.id.guide_linear);
+        profile_linear=(LinearLayout)findViewById(R.id.profile_linear);
+
+      home_linear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent bus_intent = new Intent(MainActivity.this,Bus_Booking.class);
-                startActivity(bus_intent);
+
+                Toast.makeText(getApplicationContext(),"You are already Home Page", Toast.LENGTH_SHORT).show();
+
             }
         });
+
+        guide_linear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent guide_intent= new Intent(MainActivity.this,GuideActivity.class);
+                startActivity(guide_intent);
+
+            }
+
+        });
+
+        bus_linear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent bus_intent = new Intent(MainActivity.this, BusBookingActivity.class);
+                startActivity(bus_intent);
+
+            }
+        });
+
+        hotel_linear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Intent hote_intent= new Intent(MainActivity.this,HotelBooking.class);
+                    startActivity(hote_intent);
+
+                }
+
+        });
+
+       profile_linear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Intent hote_inten= new Intent(MainActivity.this,ProfileActivity.class);
+                    startActivity(hote_inten);
+                    finish();
+                }
+
+        });
+
 
         // Now here we will add some dummy data in our model class
 
@@ -75,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
         recentRecycler.setAdapter(recentsAdapter);
 
     }
+
 
     private  void setTopPlacesRecycler(List<TopPlacesData> topPlacesDataList){
 

@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/background"
-    tools:context=".Bus_Booking">
+    tools:context=".BusBookingActivity">
 
     <LinearLayout
+        android:id="@+id/bus_linear1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bus_linear1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="vertical">
@@ -21,7 +21,7 @@
         android:text="Choose Your Ticket"
         android:textColor="#fff"
         android:textSize="20dp"
-       android:gravity="center"
+        android:gravity="center"
         android:textStyle="bold"
         android:background="@color/colorPrimary"
         android:paddingVertical="10dp"
@@ -39,16 +39,17 @@
 
     <ScrollView
         android:id="@+id/scrollView1"
-        app:layout_constraintTop_toBottomOf="@id/bus_linear1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/bus_linear1"
+        tools:layout_editor_absoluteX="0dp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -81,15 +82,15 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/sync"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:src="@drawable/sync" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginVertical="10dp"
-                android:layout_height="wrap_content"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp">
 
@@ -103,9 +104,9 @@
                     android:drawableLeft="@drawable/location"
                     android:drawablePadding="10dp"
                     android:ems="10"
+                    android:hint="Destination"
                     android:inputType="textPersonName"
                     android:paddingStart="10dp"
-                    android:hint="Destination"
                     android:textColor="#62878F" />
 
 
@@ -113,11 +114,11 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="25dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="25dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp">
 
@@ -125,16 +126,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="5dp"
-                    >
+                    android:padding="5dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="Choose Journey Date"
-                        android:textStyle="bold"
                         android:textSize="17dp"
-                        android:layout_gravity="center"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/select_date"
@@ -146,17 +146,17 @@
                         android:textAlignment="center"
                         android:textSize="15dp"
                         android:textStyle="bold" />
+
                     <Button
                         android:id="@+id/date_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:backgroundTint="@color/colorPrimary"
                         android:text="Set Date"
                         android:textAllCaps="false"
                         android:textColor="#fff"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/colorPrimary"
-                        />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -164,26 +164,24 @@
             <Button
                 android:id="@+id/idBtnPickDate"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
                 android:background="@drawable/btn"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:textSize="16dp"
+                android:backgroundTint="@color/colorPrimary"
                 android:drawablePadding="10dp"
                 android:paddingVertical="15dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
-                android:layout_marginVertical="10dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_gravity="center"
                 android:text="Search Bus"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="16dp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
 
     </ScrollView>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

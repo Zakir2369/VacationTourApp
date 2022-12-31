@@ -1,4 +1,4 @@
-package com.rajendra.vacationtourapp;
+package com.rajendra.sophorapplication;
 
 import android.content.Context;
 

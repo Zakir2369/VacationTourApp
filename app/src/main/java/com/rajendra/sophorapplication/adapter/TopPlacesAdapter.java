@@ -1,4 +1,4 @@
-package com.rajendra.vacationtourapp.adapter;
+package com.rajendra.sophorapplication.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rajendra.vacationtourapp.R;
-import com.rajendra.vacationtourapp.model.TopPlacesData;
+import com.rajendra.sophorapplication.R;
+import com.rajendra.sophorapplication.model.TopPlacesData;
 
 import java.util.List;
 

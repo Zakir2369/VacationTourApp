@@ -1,4 +1,4 @@
-package com.rajendra.vacationtourapp.adapter;
+package com.rajendra.sophorapplication.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,9 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rajendra.vacationtourapp.DetailsActivity;
-import com.rajendra.vacationtourapp.R;
-import com.rajendra.vacationtourapp.model.RecentsData;
+import com.rajendra.sophorapplication.TourPackageDetailsActivity;
+import com.rajendra.sophorapplication.R;
+import com.rajendra.sophorapplication.model.RecentsData;
 
 import java.util.List;
 
@@ -48,7 +48,7 @@ public class RecentsAdapter extends RecyclerView.Adapter<RecentsAdapter.RecentsV
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(context, DetailsActivity.class);
+                Intent i=new Intent(context, TourPackageDetailsActivity.class);
                 context.startActivity(i);
             }
         });
@@ -57,6 +57,7 @@ public class RecentsAdapter extends RecyclerView.Adapter<RecentsAdapter.RecentsV
 
     @Override
     public int getItemCount() {
+
         return recentsDataList.size();
     }
 

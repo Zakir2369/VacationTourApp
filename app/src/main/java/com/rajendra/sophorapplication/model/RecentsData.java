@@ -1,4 +1,4 @@
-package com.rajendra.vacationtourapp.model;
+package com.rajendra.sophorapplication.model;
 
 public class RecentsData {
 
@@ -8,10 +8,12 @@ public class RecentsData {
     Integer imageUrl;
 
     public Integer getImageUrl() {
+
         return imageUrl;
     }
 
     public void setImageUrl(Integer imageUrl) {
+
         this.imageUrl = imageUrl;
     }
 

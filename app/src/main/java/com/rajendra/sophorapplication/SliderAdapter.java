@@ -1,4 +1,4 @@
-package com.rajendra.vacationtourapp;
+package com.rajendra.sophorapplication;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.rajendra.vacationtourapp.model.SliderData;
+import com.rajendra.sophorapplication.model.SliderData;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
 import java.util.ArrayList;

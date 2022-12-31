@@ -1,20 +1,18 @@
-package com.rajendra.vacationtourapp;
+package com.rajendra.sophorapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.animation.ObjectAnimator;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.rajendra.vacationtourapp.model.SliderData;
+import com.rajendra.sophorapplication.model.SliderData;
 import com.smarteist.autoimageslider.SliderView;
 
-public class DetailsActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class TourPackageDetailsActivity extends AppCompatActivity {
 
     String url1 = "https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/blog4dKAKeKwaLG__IpVCQXRBfc84THl_hTO.jpg";
     String url2 = "https://i.pinimg.com/736x/7d/e4/6e/7de46e832eec81c15d454c01efdc768d.jpg";
@@ -27,7 +25,7 @@ public class DetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_details);
+        setContentView(R.layout.tour_package_details);
 
         show1=(ImageButton) findViewById(R.id.btn_dailyplan);
         show2=(ImageButton) findViewById(R.id.btn_inclusion);
