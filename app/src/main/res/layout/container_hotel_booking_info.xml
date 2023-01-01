@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/card_bg"
@@ -27,6 +26,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/hotelImage"
         app:layout_constraintTop_toTopOf="@+id/hotelImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="5dp"
+        android:layout_margin="5dp"
         android:orientation="vertical"
         >
 
@@ -36,6 +38,7 @@
             android:layout_height="wrap_content"
             android:text="Hotel Name"
             android:textSize="17sp"
+            android:textStyle="bold"
             />
 
         <TextView
@@ -45,7 +48,8 @@
             android:layout_marginTop="2dp"
             android:text="Dhaka,Bangladesh"
             app:layout_constraintStart_toStartOf="@+id/hotelName"
-            app:layout_constraintTop_toBottomOf="@+id/hotelName" />
+            app:layout_constraintTop_toBottomOf="@+id/hotelName"
+            />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -89,25 +93,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
 
-            <TextView
-                android:id="@+id/book"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Booked Room: "/>
-
-            <TextView
-                android:id="@+id/checkoutDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2"
-                />
-
-        </LinearLayout>
 
     </LinearLayout>
 
