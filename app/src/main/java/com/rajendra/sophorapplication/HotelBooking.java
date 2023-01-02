@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.rajendra.sophorapplication.adapter.AllHotelAdapter;
 import com.rajendra.sophorapplication.adapter.PopularHotelAdapter;
+import com.rajendra.sophorapplication.databinding.ActivityHotelBookingBinding;
 import com.rajendra.sophorapplication.listeners.HotelListener;
 import com.rajendra.sophorapplication.model.AllHotelData;
 import com.rajendra.sophorapplication.model.Hotel;
@@ -26,34 +28,33 @@ import java.util.Objects;
 
 public class HotelBooking extends AppCompatActivity implements HotelListener {
 
-    RecyclerView popularhotelrecycler,allhotelrecycler;
-    PopularHotelAdapter populars;
-    AllHotelAdapter alls;
-    private ImageButton backBtn;
+    private ActivityHotelBookingBinding binding;
+    private AllHotelAdapter allHotelAdapter;
     private ArrayList<Hotel> hotelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hotel_booking);
+        binding = ActivityHotelBookingBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         getHotelDataFromFirebase();
-        backBtn=(ImageButton)findViewById(R.id.bakbtn);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-        }
+
+        setListeners();
+
+
+    }
+
+    private void setListeners() {
+        binding.backButton.setOnClickListener(v -> onBackPressed());
+        binding.searchButton.setOnClickListener(v -> searchAction());
+    }
 
 
     private void setPopularHotel() {
-        popularhotelrecycler = findViewById(R.id.popular_hotel);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-        popularhotelrecycler.setLayoutManager(layoutManager);
-
-        populars = new PopularHotelAdapter(this, hotelList, this);
-        popularhotelrecycler.setAdapter(populars);
+        binding.popularHotel.setLayoutManager(layoutManager);
+        PopularHotelAdapter populars = new PopularHotelAdapter(this, hotelList, this);
+        binding.popularHotel.setAdapter(populars);
     }
 
 
@@ -61,12 +62,11 @@ public class HotelBooking extends AppCompatActivity implements HotelListener {
 
     private void setAllHotel() {
 
-        allhotelrecycler=findViewById(R.id.all_hotel);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        allhotelrecycler.setLayoutManager(layoutManager);
+        binding.allHotel.setLayoutManager(layoutManager);
 
-        alls = new AllHotelAdapter(hotelList, this);
-        allhotelrecycler.setAdapter(alls);
+        allHotelAdapter = new AllHotelAdapter(hotelList, this);
+        binding.allHotel.setAdapter(allHotelAdapter);
     }
 
     public void getHotelDataFromFirebase() {
@@ -108,6 +108,33 @@ public class HotelBooking extends AppCompatActivity implements HotelListener {
         Intent intent = new Intent(this, HotelDetailsActivity.class);
         intent.putExtra(Constants.KEY_HOTEL_NAME, hotel);
         startActivity(intent);
+    }
+
+
+    private void searchAction() {
+
+        ArrayList<Hotel> filteredHotels = new ArrayList<>();
+
+        String searchKey = binding.searchField.getText().toString().trim().toLowerCase();
+
+        for(Hotel item : hotelList) {
+            if(item.hotelName.toLowerCase().contains(searchKey)) {
+                filteredHotels.add(item);
+            } else if(item.hotelDetails.toLowerCase().contains(searchKey)) {
+                filteredHotels.add(item);
+            } else if(item.hotelLocation.toLowerCase().contains(searchKey)) {
+                filteredHotels.add(item);
+            }
+        }
+
+        if(filteredHotels.isEmpty()) {
+            Toast.makeText(this, "No Data Found..", Toast.LENGTH_SHORT).show();
+        } else {
+            binding.textView3.setVisibility(View.GONE);
+            binding.popularHotel.setVisibility(View.GONE);
+            allHotelAdapter = new AllHotelAdapter(filteredHotels, this);
+            binding.allHotel.setAdapter(allHotelAdapter);
+        }
     }
 
 

@@ -19,10 +19,6 @@ All refunds will be processed within seven (7) working days.
         \n\n<b>Child Policy</b>\n\nNo charge will be applied for kids below three (3) years old.
 BDT 1,599 has to be paid for anyone between three (3) and seven (7) years old.
 Full price has to be paid for anyone who is seven (7) years old.</string>
-    <string name="title_activity_bottom_navigation">Bottom_Navigation</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="am_lake">AM Lake</string>
     <string name="profile">Profile</string>
     <string name="full_name">Full Name</string>
@@ -39,15 +35,12 @@ Full price has to be paid for anyone who is seven (7) years old.</string>
     <string name="sign_in_now">Sign in Now</string>
     <string name="hey_welcome">Hey! Welcome</string>
     <string name="we_deliver_on_demand_organic_fresh_fruits_directly_from_your_nearby_farms">We deliver on demand organic fresh fruits directly from your nearby farms</string>
-    <string name="get_started">Get Started</string>
     <string name="i_already_have_an_account">I already have an account</string>
     <string name="image">Image</string>
-    <string name="hotel_motherchod">Hotel Motherchod</string>
     <string name="hotel_norjahan">Hotel Norjahan</string>
     <string name="hotel_sea_uttara">Hotel Sea Uttara</string>
     <string name="uttara_dhaka">Uttara,Dhaka</string>
     <string name="nothing">Nothing</string>
-    <string name="one_step_close_to_paradise">Close to Paradise</string>
 
     <string-array name="planets_array">
         <item>Dhaka</item>
