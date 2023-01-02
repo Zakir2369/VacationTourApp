@@ -271,7 +271,7 @@
                         />
 
                     <ImageButton
-                        android:id="@+id/btn_dailyplan"
+                        android:id="@+id/btnDailyPlan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingVertical="10dp"
@@ -280,7 +280,7 @@
                         app:layout_constraintEnd_toEndOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView25"
+                        android:id="@+id/contentDailyPlan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="gone"
@@ -337,7 +337,7 @@
                         app:layout_constraintTop_toTopOf="parent"/>
 
                     <ImageButton
-                        android:id="@+id/btn_inclusion"
+                        android:id="@+id/btnInclusion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingVertical="10dp"
@@ -346,7 +346,7 @@
                         app:layout_constraintEnd_toEndOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView26"
+                        android:id="@+id/contentInclusion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="gone"
@@ -403,7 +403,7 @@
                         app:layout_constraintTop_toTopOf="parent"/>
 
                     <ImageButton
-                        android:id="@+id/btn_exclusion"
+                        android:id="@+id/btnExclusion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingVertical="10dp"
@@ -412,7 +412,7 @@
                         app:layout_constraintEnd_toEndOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView27"
+                        android:id="@+id/contentExclusion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="gone"
@@ -468,7 +468,7 @@
                         app:layout_constraintTop_toTopOf="parent"/>
 
                     <ImageButton
-                        android:id="@+id/btn_policy"
+                        android:id="@+id/btnPolicy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/dropdown1"
@@ -476,7 +476,7 @@
                         app:layout_constraintEnd_toEndOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView28"
+                        android:id="@+id/contentPolicy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="gone"
