@@ -195,6 +195,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/hotelTextView7"
+                app:layout_constraintStart_toStartOf="@+id/hotelTextView7"
                 android:orientation="horizontal"
                 android:padding="5dp"
                 android:weightSum="6">

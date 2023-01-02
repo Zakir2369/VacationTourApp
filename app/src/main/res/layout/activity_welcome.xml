@@ -6,13 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".WelcomeActivity">
 
+    <LinearLayout
+        android:id="@+id/welcomeTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Smart Trip Manager"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingVertical="10dp"
+            />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/welcome_linear1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeTopBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/welcome_linear2"
@@ -54,7 +75,7 @@
             android:gravity="center"
             android:paddingVertical="8dp"
             android:paddingHorizontal="10dp"
-            android:text="Smart Trip Manager is an ongoing platform for travellers.Book your Hotel,Bus and Tour package with us."/>
+            android:text="Smart Trip Manager is an ongoing platform for travellers. Book your Hotel, Bus and Tour package with us easily."/>
 
         <Button
             android:id="@+id/welcome_button"

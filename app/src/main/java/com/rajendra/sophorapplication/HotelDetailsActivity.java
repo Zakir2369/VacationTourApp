@@ -92,8 +92,9 @@ public class HotelDetailsActivity extends AppCompatActivity implements DatePicke
         binding.hotelReadMore.setOnClickListener(v -> {
             if(binding.hotelDetails.getMaxLines() ==2) {
                 binding.hotelDetails.setMaxLines(10);
+
             } else {
-                binding.hotelDetails.setMaxLines(2);
+                binding.hotelDetails.setMaxLines(4);
             }
         });
         checkInDate = getReadableDateTime(new Date());
