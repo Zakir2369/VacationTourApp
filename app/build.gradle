@@ -5,8 +5,8 @@ android {
     compileSdkVersion 33
 
     defaultConfig {
-        applicationId "com.rajendra.vacationtourapp"
-        minSdkVersion 21
+        applicationId "com.fourdevs.sophor"
+        minSdkVersion 24
         targetSdkVersion 33
         versionCode 1
         versionName "1.0"
@@ -22,8 +22,7 @@ android {
     buildFeatures {
         viewBinding true
     }
-    namespace 'com.rajendra.sophorapplication'
-
+    namespace 'com.fourdevs.sophor'
 }
 repositories {
     maven { url 'https://jitpack.io' }
