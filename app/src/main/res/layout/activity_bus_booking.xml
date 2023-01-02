@@ -13,19 +13,42 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:text="Choose Your Ticket"
-        android:textColor="#fff"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:background="@color/colorPrimary"
-        android:paddingVertical="10dp"
-        />
+        <LinearLayout
+            android:id="@+id/hotelTopBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary"
+            >
+
+            <ImageButton
+                android:id="@+id/bakbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:src="@drawable/ic_backarrow40"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Choose Your Bus Ticket"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"
+                android:paddingVertical="10dp"
+                />
+
+
+        </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"
