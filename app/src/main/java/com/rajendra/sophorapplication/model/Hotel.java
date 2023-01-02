@@ -1,19 +1,13 @@
 package com.rajendra.sophorapplication.model;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Base64;
-
 import java.io.Serializable;
-import java.util.Date;
 
 public class Hotel implements Serializable {
     public String hotelName, hotelLocation, hotelReview, hotelDetails;
-    public String hotelPhone, hotelEmail;
-    public String checkIn, checkOut;
-    public String roomCount, hotelId;
-    public String hotelPrice;
-    public String hotelImage, hotelImage1, hotelImage2, hotelImage3;
+    public String hotelPhone, hotelEmail, checkIn, checkOut;
+    public String roomCount, hotelId, hotelPrice, hotelImage;
+    public String customerId, customerPhone, customerName;
+    public String customerEmail, customerCost, customerStayingDay;
     public Boolean wifi=false, ac=false, restaurant=false, parking=false;
 
     public Hotel() {

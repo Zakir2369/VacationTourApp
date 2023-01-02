@@ -120,7 +120,7 @@ public class SignupActivity extends AppCompatActivity {
         user.put(Constants.KEY_USER_ID, userId);
         user.put(Constants.KEY_REG_DATE, new Date());
 
-        db.collection("users")
+        db.collection(Constants.KEY_USER_DB)
                 .document(userId)
                 .set(user)
                 .addOnSuccessListener(unused -> {

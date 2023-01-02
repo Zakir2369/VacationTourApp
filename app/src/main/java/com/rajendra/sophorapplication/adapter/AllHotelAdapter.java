@@ -19,12 +19,10 @@ import java.util.List;
 
 public class AllHotelAdapter extends RecyclerView.Adapter<AllHotelAdapter.AllHotelViewHolder > {
 
-    private List<Hotel> hotelList;
-    private Context context;
-    private HotelListener hotelListener;
+    private final List<Hotel> hotelList;
+    private final HotelListener hotelListener;
 
-    public AllHotelAdapter(Context context, List<Hotel> hotelList, HotelListener hotelListener) {
-        this.context = context;
+    public AllHotelAdapter(List<Hotel> hotelList, HotelListener hotelListener) {
         this.hotelList = hotelList;
         this.hotelListener = hotelListener;
     }

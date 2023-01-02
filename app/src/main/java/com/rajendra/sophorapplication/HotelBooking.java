@@ -3,6 +3,8 @@ package com.rajendra.sophorapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,14 +29,21 @@ public class HotelBooking extends AppCompatActivity implements HotelListener {
     RecyclerView popularhotelrecycler,allhotelrecycler;
     PopularHotelAdapter populars;
     AllHotelAdapter alls;
+    private ImageButton backBtn;
     private ArrayList<Hotel> hotelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_booking);
-        Objects.requireNonNull(getSupportActionBar()).hide();
         getHotelDataFromFirebase();
+        backBtn=(ImageButton)findViewById(R.id.bakbtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         }
 
 
@@ -56,7 +65,7 @@ public class HotelBooking extends AppCompatActivity implements HotelListener {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         allhotelrecycler.setLayoutManager(layoutManager);
 
-        alls = new AllHotelAdapter(this, hotelList, this);
+        alls = new AllHotelAdapter(hotelList, this);
         allhotelrecycler.setAdapter(alls);
     }
 
@@ -100,4 +109,6 @@ public class HotelBooking extends AppCompatActivity implements HotelListener {
         intent.putExtra(Constants.KEY_HOTEL_NAME, hotel);
         startActivity(intent);
     }
+
+
 }

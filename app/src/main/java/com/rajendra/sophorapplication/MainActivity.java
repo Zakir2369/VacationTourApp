@@ -100,8 +100,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Now here we will add some dummy data in our model class
 
-        //Hide action bar
-        getSupportActionBar().hide();
 
         List<RecentsData> recentsDataList = new ArrayList<>();
         recentsDataList.add(new RecentsData("AM Lake","India","From $200",R.drawable.recentimage1));

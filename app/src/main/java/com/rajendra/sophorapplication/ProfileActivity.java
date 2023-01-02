@@ -22,7 +22,6 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
 
         preferenceManager = new PreferenceManager(this);
         mAuth = FirebaseAuth.getInstance();
@@ -33,6 +32,10 @@ public class ProfileActivity extends AppCompatActivity {
     private void setListeners() {
         binding.profileBackBtn.setOnClickListener(view -> onBackPressed());
         binding.logOut.setOnClickListener(view -> logOut());
+        binding.hotelBookingInfo.setOnClickListener(view-> {
+            Intent intent = new Intent(this, HotelBookingStatus.class);
+            startActivity(intent);
+        });
     }
 
     private void getUserData() {

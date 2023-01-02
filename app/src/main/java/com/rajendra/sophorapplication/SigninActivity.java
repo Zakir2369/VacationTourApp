@@ -93,7 +93,7 @@ public class SigninActivity extends AppCompatActivity {
     }
 
     private void getDataFromFirebase(String userId) {
-        db.collection("users")
+        db.collection(Constants.KEY_USER_DB)
                 .whereEqualTo(Constants.KEY_USER_ID, userId)
                 .get()
                 .addOnCompleteListener(task -> {
