@@ -41,7 +41,6 @@ public class HotelBooking extends AppCompatActivity implements HotelListener {
 
         setListeners();
 
-
     }
 
     private void setListeners() {
@@ -70,6 +69,7 @@ public class HotelBooking extends AppCompatActivity implements HotelListener {
     }
 
     public void getHotelDataFromFirebase() {
+        isLoading(true);
         hotelList = new ArrayList<>();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection(Constants.KEY_HOTEL_DB)
@@ -94,9 +94,11 @@ public class HotelBooking extends AppCompatActivity implements HotelListener {
                             hotel.hotelImage = document.getString(Constants.KEY_HOTEL_IMAGE);
                             hotel.hotelReview = document.getString(Constants.KEY_HOTEL_REVIEW);
                             hotelList.add(hotel);
-                            setAllHotel();
-                            setPopularHotel();
                         }
+                        binding.constraintLayout2.setVisibility(View.VISIBLE);
+                        setAllHotel();
+                        setPopularHotel();
+                        isLoading(false);
                     }
                 });
 
@@ -134,6 +136,14 @@ public class HotelBooking extends AppCompatActivity implements HotelListener {
             binding.popularHotel.setVisibility(View.GONE);
             allHotelAdapter = new AllHotelAdapter(filteredHotels, this);
             binding.allHotel.setAdapter(allHotelAdapter);
+        }
+    }
+
+    private void isLoading(Boolean loading) {
+        if(loading) {
+            binding.progressBar.setVisibility(View.VISIBLE);
+        } else {
+            binding.progressBar.setVisibility(View.GONE);
         }
     }
 

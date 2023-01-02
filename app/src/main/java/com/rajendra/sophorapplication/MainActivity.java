@@ -5,23 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.rajendra.sophorapplication.adapter.AllHotelAdapter;
-import com.rajendra.sophorapplication.adapter.PopularHotelAdapter;
 import com.rajendra.sophorapplication.adapter.RecentAdapter;
 import com.rajendra.sophorapplication.adapter.TopPlaceAdapter;
 import com.rajendra.sophorapplication.databinding.ActivityMainBinding;
 import com.rajendra.sophorapplication.listeners.TourListeners;
-import com.rajendra.sophorapplication.model.Hotel;
 import com.rajendra.sophorapplication.model.Tour;
 import com.rajendra.sophorapplication.util.Constants;
 
@@ -30,8 +23,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements TourListeners {
 
     private ActivityMainBinding binding;
-
-    private RecentAdapter recentAdapter;
     private TopPlaceAdapter topPlacesAdapter;
     private ArrayList<Tour> tourList;
 
@@ -47,35 +38,33 @@ public class MainActivity extends AppCompatActivity implements TourListeners {
 
     private void getTourHotelData() {
         tourList = new ArrayList<>();
+        isLoading(true);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection(Constants.KEY_TOUR_DB)
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
 
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Tour tour = new Tour();
-                                tour.packageId = document.getId();
-                                tour.name = document.getString(Constants.KEY_TOUR_NAME);
-                                tour.date = document.getString(Constants.KEY_TOUR_DATE);
-                                tour.price = document.getString(Constants.KEY_TOUR_PRICE);
-                                tour.location = document.getString(Constants.KEY_TOUR_LOCATION);
-                                tour.duration = document.getString(Constants.KEY_TOUR_DURATION);
-                                tour.details = document.getString(Constants.KEY_TOUR_DETAILS);
-                                tour.dayOne = document.getString(Constants.KEY_TOUR_DAY_ONE);
-                                tour.dayTwo = document.getString(Constants.KEY_TOUR_DAY_TWO);
-                                tour.dayThree = document.getString(Constants.KEY_TOUR_DAY_THREE);
-                                tour.mainImage = document.getString(Constants.KEY_TOUR_MAIN_IMAGE);
-                                tour.galleryOne = document.getString(Constants.KEY_TOUR_GALLERY_ONE);
-                                tour.galleryTwo = document.getString(Constants.KEY_TOUR_GALLERY_TWO);
-                                tour.galleryThree = document.getString(Constants.KEY_TOUR_GALLERY_THREE);
-                                tourList.add(tour);
-                            }
-                            setRecentRecycler();
-                            setTopPlacesRecycler();
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            Tour tour = new Tour();
+                            tour.packageId = document.getId();
+                            tour.name = document.getString(Constants.KEY_TOUR_NAME);
+                            tour.date = document.getString(Constants.KEY_TOUR_DATE);
+                            tour.price = document.getString(Constants.KEY_TOUR_PRICE);
+                            tour.location = document.getString(Constants.KEY_TOUR_LOCATION);
+                            tour.duration = document.getString(Constants.KEY_TOUR_DURATION);
+                            tour.details = document.getString(Constants.KEY_TOUR_DETAILS);
+                            tour.dailyPlan = document.getString(Constants.KEY_TOUR_DAILY_PLAN);
+                            tour.mainImage = document.getString(Constants.KEY_TOUR_MAIN_IMAGE);
+                            tour.galleryOne = document.getString(Constants.KEY_TOUR_GALLERY_ONE);
+                            tour.galleryTwo = document.getString(Constants.KEY_TOUR_GALLERY_TWO);
+                            tour.galleryThree = document.getString(Constants.KEY_TOUR_GALLERY_THREE);
+                            tourList.add(tour);
                         }
+                        binding.constraintLayout2.setVisibility(View.VISIBLE);
+                        setRecentRecycler();
+                        setTopPlacesRecycler();
+                        isLoading(false);
                     }
                 });
 
@@ -85,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements TourListeners {
     private  void setRecentRecycler(){
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         binding.popularTour.setLayoutManager(layoutManager);
-        recentAdapter = new RecentAdapter(tourList, this);
+        RecentAdapter recentAdapter = new RecentAdapter(tourList, this);
         binding.popularTour.setAdapter(recentAdapter);
     }
 
@@ -136,7 +125,9 @@ public class MainActivity extends AppCompatActivity implements TourListeners {
 
     @Override
     public void onUserClicked(Tour tour) {
-
+        Intent intent = new Intent(this, TourPackageDetailsActivity.class);
+        intent.putExtra(Constants.KEY_TOUR_NAME, tour);
+        startActivity(intent);
     }
 
     private void searchAction() {
@@ -162,6 +153,14 @@ public class MainActivity extends AppCompatActivity implements TourListeners {
             binding.popularTour.setVisibility(View.GONE);
             topPlacesAdapter = new TopPlaceAdapter(filteredPackages, this);
             binding.allTour.setAdapter(topPlacesAdapter);
+        }
+    }
+
+    private void isLoading(Boolean loading) {
+        if(loading) {
+            binding.progressBar.setVisibility(View.VISIBLE);
+        } else {
+            binding.progressBar.setVisibility(View.GONE);
         }
     }
 }

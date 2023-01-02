@@ -1,5 +1,6 @@
 package com.rajendra.sophorapplication.adapter;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
@@ -47,19 +48,21 @@ public class RecentAdapter extends RecyclerView.Adapter<RecentAdapter.RecentView
         return tourList.size();
     }
 
-    static class RecentViewHolder extends RecyclerView.ViewHolder {
+    class RecentViewHolder extends RecyclerView.ViewHolder {
         RecentsRowItemBinding binding;
         public RecentViewHolder(RecentsRowItemBinding recentsRowItemBinding) {
             super(recentsRowItemBinding.getRoot());
             binding = recentsRowItemBinding;
         }
 
+        @SuppressLint("SetTextI18n")
         void setTourData(Tour tour) {
             binding.placeImage.setImageBitmap(getBitmapFromEncodedString(tour.mainImage));
             binding.placeName.setText(tour.name);
             binding.countryName.setText(tour.location);
             binding.price.setText("BDT "+tour.price);
-            binding.eventDate.setText(tour.date);
+            binding.eventDate.setText("Date: "+tour.date);
+            binding.getRoot().setOnClickListener(view -> tourListeners.onUserClicked(tour));
         }
         private Bitmap getBitmapFromEncodedString(String encodedImage) {
             byte[] bytes = Base64.decode(encodedImage, Base64.DEFAULT);

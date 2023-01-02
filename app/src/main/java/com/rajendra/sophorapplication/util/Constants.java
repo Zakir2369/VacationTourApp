@@ -41,9 +41,6 @@ public class Constants {
     public static final String KEY_TOUR_DURATION = "tourDuration";
     public static final String KEY_TOUR_DETAILS = "tourDetails";
     public static final String KEY_TOUR_DAILY_PLAN = "tourDailyPlan";
-    public static final String KEY_TOUR_DAY_ONE = "tourDayOne";
-    public static final String KEY_TOUR_DAY_TWO = "tourDayTwo";
-    public static final String KEY_TOUR_DAY_THREE = "tourDayThree";
     public static final String KEY_TOUR_MAIN_IMAGE = "tourMainImage";
     public static final String KEY_TOUR_GALLERY_ONE = "tourGalleryOne";
     public static final String KEY_TOUR_GALLERY_TWO = "tourGalleryTwo";
@@ -51,6 +48,8 @@ public class Constants {
     public static final String KEY_TOUR_PERSON_COUNT = "tourPersonCount";
     public static final String KEY_TOUR_PAYMENT = "tourPayment";
     public static final String KEY_TOUR_LOCATION = "tourLocation";
+    public static final String KEY_TOUR_BOOKING = "tourBooking";
+    public static final String KEY_TOUR_PACKAGE_ID = "tourId";
 
 
 }

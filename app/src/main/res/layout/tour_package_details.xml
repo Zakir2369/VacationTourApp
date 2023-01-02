@@ -53,7 +53,7 @@
 
 
             <TextView
-                android:id="@+id/tourtLocation"
+                android:id="@+id/tourPackage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
@@ -64,6 +64,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/slider" />
 
+            <TextView
+                android:id="@+id/tourtLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Dhaka Bangladesh"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tourPackage" />
+
 
             <TextView
                 android:id="@+id/textView8"
@@ -72,7 +83,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="Event Date :"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/tourtLocation"
                 app:layout_constraintTop_toBottomOf="@+id/tourtLocation" />
@@ -84,7 +95,7 @@
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="Package Price : "
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -120,7 +131,7 @@
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/roboto_bold"
                 android:text="Photo Gallery"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/textView15"
                 app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
@@ -131,7 +142,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/roboto_bold"
                 android:text="Overview "
-                android:textSize="16dp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
@@ -145,8 +156,6 @@
                 android:background="@drawable/border"
                 android:paddingHorizontal="5dp"
                 android:paddingVertical="10dp"
-                android:text="Cox's Bazar is one of the longest sea beaches in the world. It's a sandy beach with an unbroken 155 Km length. There are large number of hotels, resorts, guest houses,
- motels and restaurants have been established in the city."
                 app:layout_constraintStart_toStartOf="@+id/textView13"
                 app:layout_constraintTop_toBottomOf="@+id/textView13"
                 app:layout_constraintVertical_bias="0.100000024" />
@@ -501,7 +510,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/signup_button"
+                android:id="@+id/booking_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
@@ -517,6 +526,17 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

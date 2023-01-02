@@ -1,5 +1,6 @@
 package com.rajendra.sophorapplication.adapter;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
@@ -26,6 +27,7 @@ public class TopPlaceAdapter extends RecyclerView.Adapter<TopPlaceAdapter.TopPla
         this.tourListeners = tourListeners;
     }
 
+    @NonNull
     public TopPlaceAdapter.TopPlaceViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         TopPlacesRowItemBinding topPlacesRowItemBinding = TopPlacesRowItemBinding.inflate(
                 LayoutInflater.from(parent.getContext()),
@@ -46,20 +48,22 @@ public class TopPlaceAdapter extends RecyclerView.Adapter<TopPlaceAdapter.TopPla
         return tourList.size();
     }
 
-    static class TopPlaceViewHolder extends RecyclerView.ViewHolder {
+    class TopPlaceViewHolder extends RecyclerView.ViewHolder {
 
         TopPlacesRowItemBinding binding;
         public TopPlaceViewHolder(TopPlacesRowItemBinding topPlacesRowItemBinding) {
             super(topPlacesRowItemBinding.getRoot());
             binding=topPlacesRowItemBinding;
         }
+        @SuppressLint("SetTextI18n")
         void setTourData(Tour tour) {
 
             binding.placeImage.setImageBitmap(getBitmapFromEncodedString(tour.mainImage));
             binding.placeName.setText(tour.name);
             binding.countryName.setText(tour.location);
-            binding.price.setText("Package Price: BDT "+tour.price);
-            binding.eventDate.setText("Even Date: "+tour.date);
+            binding.price.setText("BDT "+tour.price);
+            binding.eventDate.setText("Date: "+tour.date);
+            binding.getRoot().setOnClickListener(view -> tourListeners.onUserClicked(tour));
         }
         private Bitmap getBitmapFromEncodedString(String encodedImage) {
             byte[] bytes = Base64.decode(encodedImage, Base64.DEFAULT);

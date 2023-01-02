@@ -61,7 +61,6 @@ public class AllHotelAdapter extends RecyclerView.Adapter<AllHotelAdapter.AllHot
             binding.hotelName.setText(hotel.hotelName);
             binding.location.setText(hotel.hotelLocation);
             binding.hotelPrice.setText("BDT "+hotel.hotelPrice);
-
             binding.getRoot().setOnClickListener(view -> hotelListener.onUserClicked(hotel));
         }
         private Bitmap getBitmapFromEncodedString(String encodedImage) {

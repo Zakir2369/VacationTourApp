@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Tour implements Serializable {
     public String name, date, price, duration, details;
-    public String dayOne, dayTwo, dayThree;
+    public String dailyPlan;
     public String mainImage, galleryOne, galleryTwo, galleryThree;
     public String personCount, location, packageId;
 }
