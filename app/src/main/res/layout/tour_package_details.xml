@@ -169,7 +169,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/contentOverView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -240,8 +240,8 @@
                 app:cardMaxElevation="5dp"
                 app:cardBackgroundColor="#E7E8ED"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/textView14"
-                app:layout_constraintStart_toStartOf="@+id/textView14"
+                app:layout_constraintTop_toBottomOf="@+id/contentOverView"
+                app:layout_constraintStart_toStartOf="@+id/contentOverView"
                 app:layout_constraintEnd_toEndOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
