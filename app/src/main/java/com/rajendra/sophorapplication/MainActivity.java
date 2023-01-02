@@ -3,147 +3,165 @@ package com.rajendra.sophorapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rajendra.sophorapplication.adapter.RecentsAdapter;
-import com.rajendra.sophorapplication.adapter.TopPlacesAdapter;
-import com.rajendra.sophorapplication.model.RecentsData;
-import com.rajendra.sophorapplication.model.TopPlacesData;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.rajendra.sophorapplication.adapter.AllHotelAdapter;
+import com.rajendra.sophorapplication.adapter.PopularHotelAdapter;
+import com.rajendra.sophorapplication.adapter.RecentAdapter;
+import com.rajendra.sophorapplication.adapter.TopPlaceAdapter;
+import com.rajendra.sophorapplication.databinding.ActivityMainBinding;
+import com.rajendra.sophorapplication.listeners.TourListeners;
+import com.rajendra.sophorapplication.model.Hotel;
+import com.rajendra.sophorapplication.model.Tour;
+import com.rajendra.sophorapplication.util.Constants;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TourListeners {
 
-    RecyclerView recentRecycler, topPlacesRecycler;
-    RecentsAdapter recentsAdapter;
-    TopPlacesAdapter topPlacesAdapter;
-    LinearLayout home_linear,bus_linear,hotel_linear,guide_linear,profile_linear;
+    private ActivityMainBinding binding;
 
-    private ImageView home_icon,bus_book,hotel_icon;
-    private TextView home_text,hotel_text,bus_text;
+    private RecentAdapter recentAdapter;
+    private TopPlaceAdapter topPlacesAdapter;
+    private ArrayList<Tour> tourList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        home_icon=findViewById(R.id.home_icon);
-        bus_book=findViewById(R.id.bus_book);
-        hotel_icon=findViewById(R.id.hotel_icon);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        //Text View
-        home_text=findViewById(R.id.home_text);
-        hotel_text=findViewById(R.id.hotel_text);
-        bus_text=findViewById(R.id.bus_text);
-
-        home_linear=(LinearLayout) findViewById(R.id.home_linear);
-        bus_linear=(LinearLayout) findViewById(R.id.bus_linear);
-        hotel_linear=(LinearLayout)findViewById(R.id.hotel_linear);
-        guide_linear=(LinearLayout)findViewById(R.id.guide_linear);
-        profile_linear=(LinearLayout)findViewById(R.id.profile_linear);
-
-      home_linear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(),"You are already Home Page", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-        guide_linear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent guide_intent= new Intent(MainActivity.this,GuideActivity.class);
-                startActivity(guide_intent);
-
-            }
-
-        });
-
-        bus_linear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent bus_intent = new Intent(MainActivity.this, BusBookingActivity.class);
-                startActivity(bus_intent);
-
-            }
-        });
-
-        hotel_linear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    Intent hote_intent= new Intent(MainActivity.this,HotelBooking.class);
-                    startActivity(hote_intent);
-
-                }
-
-        });
-
-       profile_linear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    Intent hote_inten= new Intent(MainActivity.this,ProfileActivity.class);
-                    startActivity(hote_inten);
-                    finish();
-                }
-
-        });
-
-
-        // Now here we will add some dummy data in our model class
-
-
-        List<RecentsData> recentsDataList = new ArrayList<>();
-        recentsDataList.add(new RecentsData("AM Lake","India","From $200",R.drawable.recentimage1));
-        recentsDataList.add(new RecentsData("Nilgiri Hills","India","From $300",R.drawable.recentimage2));
-        recentsDataList.add(new RecentsData("AM Lake","India","From $200",R.drawable.recentimage1));
-        recentsDataList.add(new RecentsData("Nilgiri Hills","India","From $300",R.drawable.recentimage2));
-        recentsDataList.add(new RecentsData("AM Lake","India","From $200",R.drawable.recentimage1));
-        recentsDataList.add(new RecentsData("Nilgiri Hills","India","From $300",R.drawable.recentimage2));
-
-        setRecentRecycler(recentsDataList);
-
-        List<TopPlacesData> topPlacesDataList = new ArrayList<>();
-        topPlacesDataList.add(new TopPlacesData("Kasimir Hill","India","$200 - $500",R.drawable.topplaces));
-        topPlacesDataList.add(new TopPlacesData("Kasimir Hill","India","$200 - $500",R.drawable.topplaces));
-        topPlacesDataList.add(new TopPlacesData("Kasimir Hill","India","$200 - $500",R.drawable.topplaces));
-        topPlacesDataList.add(new TopPlacesData("Kasimir Hill","India","$200 - $500",R.drawable.topplaces));
-        topPlacesDataList.add(new TopPlacesData("Kasimir Hill","India","$200 - $500",R.drawable.topplaces));
-
-        setTopPlacesRecycler(topPlacesDataList);
+        setListeners();
+        getTourHotelData();
     }
 
-    private  void setRecentRecycler(List<RecentsData> recentsDataList){
+    private void getTourHotelData() {
+        tourList = new ArrayList<>();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection(Constants.KEY_TOUR_DB)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
 
-        recentRecycler = findViewById(R.id.recent_recycler);
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Tour tour = new Tour();
+                                tour.packageId = document.getId();
+                                tour.name = document.getString(Constants.KEY_TOUR_NAME);
+                                tour.date = document.getString(Constants.KEY_TOUR_DATE);
+                                tour.price = document.getString(Constants.KEY_TOUR_PRICE);
+                                tour.location = document.getString(Constants.KEY_TOUR_LOCATION);
+                                tour.duration = document.getString(Constants.KEY_TOUR_DURATION);
+                                tour.details = document.getString(Constants.KEY_TOUR_DETAILS);
+                                tour.dayOne = document.getString(Constants.KEY_TOUR_DAY_ONE);
+                                tour.dayTwo = document.getString(Constants.KEY_TOUR_DAY_TWO);
+                                tour.dayThree = document.getString(Constants.KEY_TOUR_DAY_THREE);
+                                tour.mainImage = document.getString(Constants.KEY_TOUR_MAIN_IMAGE);
+                                tour.galleryOne = document.getString(Constants.KEY_TOUR_GALLERY_ONE);
+                                tour.galleryTwo = document.getString(Constants.KEY_TOUR_GALLERY_TWO);
+                                tour.galleryThree = document.getString(Constants.KEY_TOUR_GALLERY_THREE);
+                                tourList.add(tour);
+                            }
+                            setRecentRecycler();
+                            setTopPlacesRecycler();
+                        }
+                    }
+                });
+
+    }
+
+
+    private  void setRecentRecycler(){
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-        recentRecycler.setLayoutManager(layoutManager);
-        recentsAdapter = new RecentsAdapter(this, recentsDataList);
-        recentRecycler.setAdapter(recentsAdapter);
-
+        binding.popularTour.setLayoutManager(layoutManager);
+        recentAdapter = new RecentAdapter(tourList, this);
+        binding.popularTour.setAdapter(recentAdapter);
     }
 
 
-    private  void setTopPlacesRecycler(List<TopPlacesData> topPlacesDataList){
-
-        topPlacesRecycler = findViewById(R.id.top_places_recycler);
+    private  void setTopPlacesRecycler(){
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        topPlacesRecycler.setLayoutManager(layoutManager);
-        topPlacesAdapter = new TopPlacesAdapter(this, topPlacesDataList);
-        topPlacesRecycler.setAdapter(topPlacesAdapter);
+        binding.allTour.setLayoutManager(layoutManager);
+        topPlacesAdapter = new TopPlaceAdapter(tourList, this);
+        binding.allTour.setAdapter(topPlacesAdapter);
+
+    }
+
+    private void setListeners() {
+        binding.hotelLinear.setOnClickListener(view -> Toast.makeText(getApplicationContext(),"You are already Home Page", Toast.LENGTH_SHORT).show());
+
+        binding.guideLinear.setOnClickListener(view -> {
+            Intent guide_intent= new Intent(MainActivity.this,GuideActivity.class);
+            startActivity(guide_intent);
+
+        });
+
+        binding.busLinear.setOnClickListener(view -> {
+            Intent bus_intent = new Intent(MainActivity.this, BusBookingActivity.class);
+            startActivity(bus_intent);
+
+        });
+
+        binding.hotelLinear.setOnClickListener(view -> {
+            Intent hote_intent= new Intent(MainActivity.this,HotelBooking.class);
+            startActivity(hote_intent);
+
+        });
+
+        binding.profileLinear.setOnClickListener(view -> {
+            Intent hote_inten= new Intent(MainActivity.this,ProfileActivity.class);
+            startActivity(hote_inten);
+            finish();
+        });
+
+        binding.searchButton.setOnClickListener(v -> searchAction());
 
     }
 
     @Override
     public void onBackPressed() {
         finish();
+    }
+
+    @Override
+    public void onUserClicked(Tour tour) {
+
+    }
+
+    private void searchAction() {
+
+        ArrayList<Tour> filteredPackages = new ArrayList<>();
+
+        String searchKey = binding.searchField.getText().toString().trim().toLowerCase();
+
+        for(Tour item : tourList) {
+            if(item.name.toLowerCase().contains(searchKey)) {
+                filteredPackages.add(item);
+            } else if(item.location.toLowerCase().contains(searchKey)) {
+                filteredPackages.add(item);
+            } else if(item.details.toLowerCase().contains(searchKey)) {
+                filteredPackages.add(item);
+            }
+        }
+
+        if(filteredPackages.isEmpty()) {
+            Toast.makeText(this, "No Data Found..", Toast.LENGTH_SHORT).show();
+        } else {
+            binding.textView3.setVisibility(View.GONE);
+            binding.popularTour.setVisibility(View.GONE);
+            topPlacesAdapter = new TopPlaceAdapter(filteredPackages, this);
+            binding.allTour.setAdapter(topPlacesAdapter);
+        }
     }
 }

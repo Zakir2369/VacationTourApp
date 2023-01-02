@@ -7,10 +7,9 @@
     tools:context=".TourPackageDetailsActivity">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +27,7 @@
                 android:scaleType="fitXY"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12"
-                app:srcCompat="@drawable/img1"/>
+                app:srcCompat="@drawable/img1" />
 
             <ImageView
                 android:id="@+id/imageView9"
@@ -118,10 +117,10 @@
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/roboto_bold"
                 android:text="Photo Gallery"
+                android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="@+id/textView15"
                 app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
@@ -143,9 +142,9 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="8dp"
-                android:paddingVertical="10dp"
-                android:paddingHorizontal="5dp"
                 android:background="@drawable/border"
+                android:paddingHorizontal="5dp"
+                android:paddingVertical="10dp"
                 android:text="Cox's Bazar is one of the longest sea beaches in the world. It's a sandy beach with an unbroken 155 Km length. There are large number of hotels, resorts, guest houses,
  motels and restaurants have been established in the city."
                 app:layout_constraintStart_toStartOf="@+id/textView13"
@@ -158,11 +157,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Duration: "
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView9"
-                app:layout_constraintTop_toBottomOf="@+id/textView9"/>
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
             <TextView
                 android:id="@+id/textView16"
@@ -174,91 +173,76 @@
                 app:layout_constraintTop_toTopOf="@+id/textView15"
                 app:layout_constraintVertical_bias="0.509" />
 
-            <com.smarteist.autoimageslider.SliderView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/slider"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_centerInParent="true"
                 android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toTopOf="@+id/tourtLocation"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.526"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:sliderAnimationDuration="600"
-                app:sliderAutoCycleDirection="back_and_forth"
-                app:sliderIndicatorAnimationDuration="600"
-                app:sliderIndicatorEnabled="true"
-                app:sliderIndicatorGravity="center_horizontal|bottom"
-                app:sliderIndicatorMargin="15dp"
-                app:sliderIndicatorOrientation="horizontal"
-                app:sliderIndicatorPadding="3dp"
-                app:sliderIndicatorRadius="2dp"
-                app:sliderIndicatorSelectedColor="#5A5A5A"
-                app:sliderIndicatorUnselectedColor="#FFF"
-                app:sliderScrollTimeInSec="1" />
+                android:scaleType="fitXY"
+                android:src="@drawable/img1"
+                />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-                app:cardMaxElevation="5dp"
                 app:cardBackgroundColor="#E7E8ED"
+                app:cardCornerRadius="8dp"
+                app:cardMaxElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/textView14"
                 app:layout_constraintStart_toStartOf="@+id/textView14"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/textView14">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:paddingHorizontal="10dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp">
 
                     <ImageView
                         android:id="@+id/imageView18"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/event"
                         android:paddingVertical="10dp"
-                        />
+                        android:src="@drawable/event" />
 
                     <TextView
-                        android:id="@+id/textView17"
+                        android:id="@+id/textView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Daily Plan"
-                        android:paddingVertical="10dp"
-                        android:textColor="#222527"
                         android:layout_marginStart="3sp"
+                        android:paddingVertical="10dp"
+                        android:text="Daily Plan"
+                        android:textColor="#222527"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/imageView18"
-                        />
+                        app:layout_constraintStart_toEndOf="@+id/imageView18" />
 
                     <ImageButton
                         android:id="@+id/btn_dailyplan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@null"
                         android:paddingVertical="10dp"
                         android:src="@drawable/dropdown1"
-                        android:background="@null"
                         app:layout_constraintEnd_toEndOf="parent" />
 
                     <TextView
                         android:id="@+id/textView25"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
                         android:paddingBottom="10dp"
                         android:text="@string/dailyPlan"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView18"
-                        />
+                        android:visibility="gone"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView18" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
             </androidx.cardview.widget.CardView>
@@ -267,27 +251,27 @@
                 android:id="@+id/card4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-                app:cardMaxElevation="5dp"
                 app:cardBackgroundColor="#E7E8ED"
+                app:cardCornerRadius="8dp"
+                app:cardMaxElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/card3"
                 app:layout_constraintStart_toStartOf="@+id/card3"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/card3">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:paddingHorizontal="10dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp">
 
                     <ImageView
                         android:id="@+id/imageView19"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/inclusion"
                         android:paddingVertical="10dp"
+                        android:src="@drawable/inclusion"
 
                         />
 
@@ -295,36 +279,34 @@
                         android:id="@+id/textView18"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Inclusion"
+                        android:layout_marginStart="3sp"
                         android:paddingVertical="10dp"
+                        android:text="Inclusion"
                         android:textColor="#222527"
                         android:textSize="16sp"
-                        android:layout_marginStart="3sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/imageView19"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageButton
                         android:id="@+id/btn_inclusion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@null"
                         android:paddingVertical="10dp"
                         android:src="@drawable/dropdown1"
-                        android:background="@null"
                         app:layout_constraintEnd_toEndOf="parent" />
 
                     <TextView
                         android:id="@+id/textView26"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
                         android:paddingBottom="10dp"
                         android:text="@string/inclusion"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView19"
-                        />
+                        android:visibility="gone"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView19" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
             </androidx.cardview.widget.CardView>
@@ -333,27 +315,27 @@
                 android:id="@+id/card5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-                app:cardMaxElevation="5dp"
                 app:cardBackgroundColor="#E7E8ED"
+                app:cardCornerRadius="8dp"
+                app:cardMaxElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/card4"
                 app:layout_constraintStart_toStartOf="@+id/card4"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/card4">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:paddingHorizontal="10dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp">
 
                     <ImageView
                         android:id="@+id/imageView17"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/area"
                         android:paddingVertical="10dp"
+                        android:src="@drawable/area"
 
                         />
 
@@ -361,21 +343,21 @@
                         android:id="@+id/textView19"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Exclusion"
-                        android:paddingVertical="10dp"
-                        android:textColor="#222527"
                         android:layout_marginStart="3sp"
+                        android:paddingVertical="10dp"
+                        android:text="Exclusion"
+                        android:textColor="#222527"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/imageView17"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageButton
                         android:id="@+id/btn_exclusion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingVertical="10dp"
                         android:background="@null"
+                        android:paddingVertical="10dp"
                         android:src="@drawable/dropdown1"
                         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -383,14 +365,12 @@
                         android:id="@+id/textView27"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
                         android:paddingBottom="10dp"
                         android:text="@string/exlusion"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView17"
-                        />
+                        android:visibility="gone"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView17" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
             </androidx.cardview.widget.CardView>
@@ -399,62 +379,59 @@
                 android:id="@+id/card6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-                app:cardMaxElevation="5dp"
                 app:cardBackgroundColor="#E7E8ED"
+                app:cardCornerRadius="8dp"
+                app:cardMaxElevation="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/card5"
                 app:layout_constraintStart_toStartOf="@+id/card5"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/card5">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:paddingHorizontal="10dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp">
 
                     <ImageView
                         android:id="@+id/imageView15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/policy1"
                         android:paddingVertical="10dp"
-                        />
+                        android:src="@drawable/policy1" />
 
                     <TextView
                         android:id="@+id/textView20"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Policy"
+                        android:layout_marginStart="3sp"
                         android:paddingVertical="10dp"
+                        android:text="Policy"
                         android:textColor="#222527"
                         android:textSize="16sp"
-                        android:layout_marginStart="3sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/imageView15"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageButton
                         android:id="@+id/btn_policy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/dropdown1"
                         android:background="@null"
+                        android:src="@drawable/dropdown1"
                         app:layout_constraintEnd_toEndOf="parent" />
 
                     <TextView
                         android:id="@+id/textView28"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:text="@string/policy"
                         android:paddingBottom="10dp"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView15"
-                        />
+                        android:text="@string/policy"
+                        android:visibility="gone"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView15" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
             </androidx.cardview.widget.CardView>
@@ -463,64 +440,62 @@
                 android:id="@+id/textView30"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Select Traveller"
+                android:layout_marginTop="8dp"
                 android:background="@color/colorPrimaryDark"
                 android:gravity="center"
-                android:textColor="#ffffff"
                 android:paddingVertical="10dp"
-                android:layout_marginTop="8dp"
+                android:text="Select Traveller"
+                android:textColor="#ffffff"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@+id/card6"
-                app:layout_constraintStart_toStartOf="@+id/card6"/>
+                app:layout_constraintStart_toStartOf="@+id/card6"
+                app:layout_constraintTop_toBottomOf="@+id/card6" />
 
             <LinearLayout
                 android:id="@+id/linear1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/textView30"
-                android:weightSum="4">
+                android:weightSum="4"
+                app:layout_constraintTop_toBottomOf="@+id/textView30">
 
                 <TextView
                     android:id="@+id/man"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Person:"
-                    android:textStyle="bold"
+                    android:layout_weight="1"
                     android:paddingVertical="10dp"
+                    android:text="Person:"
                     android:textSize="14sp"
-                    />
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/decrement"
-                    android:layout_weight="1"
-                    android:textSize="20dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="-" />
+                    android:layout_weight="1"
+                    android:text="-"
+                    android:textSize="20sp" />
 
 
                 <TextView
                     android:id="@+id/count_traveller"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:paddingVertical="6dp"
-                    android:textSize="18dp"
+                    android:layout_weight="1"
                     android:background="@color/colorPrimary"
                     android:gravity="center"
+                    android:paddingVertical="6dp"
                     android:text="0"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/increment"
-                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:text="+" />
-
+                    android:layout_weight="1"
+                    android:text="+"
+                    android:textSize="20sp" />
 
 
             </LinearLayout>
@@ -531,13 +506,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="15dp"
-                android:text="Book Package"
                 android:background="@drawable/btn"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="Book Package"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/colorPrimary"
-                app:layout_constraintTop_toBottomOf="@+id/linear1"/>
-
+                app:layout_constraintTop_toBottomOf="@+id/linear1" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

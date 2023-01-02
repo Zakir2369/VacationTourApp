@@ -30,13 +30,27 @@ public class Constants {
     public static final String KEY_HOTEL_PHONE = "hotelPhone";
     public static final String KEY_HOTEL_DAY_COUNT = "hotelDayCount";
     public static final String KEY_HOTEL_COST = "hotelCost";
-
-
     public static final String KEY_HOTEL_BOOKING = "hotelBooking";
     public static final String KEY_HOTEL_ID = "hotelId";
 
     //Tour Package
-
+    public static final String KEY_TOUR_DB = "tourPackage";
+    public static final String KEY_TOUR_NAME = "tourName";
+    public static final String KEY_TOUR_DATE = "tourDate";
+    public static final String KEY_TOUR_PRICE = "tourPrice";
+    public static final String KEY_TOUR_DURATION = "tourDuration";
+    public static final String KEY_TOUR_DETAILS = "tourDetails";
+    public static final String KEY_TOUR_DAILY_PLAN = "tourDailyPlan";
+    public static final String KEY_TOUR_DAY_ONE = "tourDayOne";
+    public static final String KEY_TOUR_DAY_TWO = "tourDayTwo";
+    public static final String KEY_TOUR_DAY_THREE = "tourDayThree";
+    public static final String KEY_TOUR_MAIN_IMAGE = "tourMainImage";
+    public static final String KEY_TOUR_GALLERY_ONE = "tourGalleryOne";
+    public static final String KEY_TOUR_GALLERY_TWO = "tourGalleryTwo";
+    public static final String KEY_TOUR_GALLERY_THREE = "tourGalleryThree";
+    public static final String KEY_TOUR_PERSON_COUNT = "tourPersonCount";
+    public static final String KEY_TOUR_PAYMENT = "tourPayment";
+    public static final String KEY_TOUR_LOCATION = "tourLocation";
 
 
 }
