@@ -124,7 +124,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="18dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Top Tour Package"
+                android:text="Current tour package"
                 android:paddingVertical="10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/popular_tour"/>
@@ -146,7 +146,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="All tour package"
+                android:text="Recent tour package"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/popular_tour" />
 

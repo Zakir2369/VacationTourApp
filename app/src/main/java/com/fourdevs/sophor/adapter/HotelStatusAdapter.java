@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fourdevs.sophor.databinding.ItemContainerHotelBookingInfoBinding;
+import com.fourdevs.sophor.listeners.HotelListener;
 import com.fourdevs.sophor.model.Hotel;
 
 import java.util.List;
@@ -64,11 +65,8 @@ public class HotelStatusAdapter extends RecyclerView.Adapter<HotelStatusAdapter.
             binding.nightCount.setText(hotel.customerStayingDay+" Night");
             binding.roomCount.setText(hotel.roomCount+" Room");
             binding.totalCost.setText(hotel.customerCost+" Tk");
+
         }
 
-        private Bitmap getBitmapFromEncodedString(String encodedImage) {
-            byte[] bytes = Base64.decode(encodedImage, Base64.DEFAULT);
-            return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-        }
     }
 }

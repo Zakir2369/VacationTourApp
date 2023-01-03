@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/card_bg"
+    android:background="@drawable/border"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="4dp">
@@ -65,15 +65,30 @@
                 />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/hotelLocation"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:text="Dhaka,Bangladesh"
             app:layout_constraintStart_toStartOf="@+id/hotelName"
-            app:layout_constraintTop_toBottomOf="@+id/hotelName"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/hotelName">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_location"
+
+                />
+
+            <TextView
+                android:id="@+id/hotelLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dhaka,Bangladesh"
+                />
+
+
+        </LinearLayout>
+
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -85,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Check In Date: "/>
+                android:text="Check In: "/>
 
             <TextView
                 android:id="@+id/checkinDate"
@@ -108,7 +123,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="Check Out Date: "/>
+                android:text="Check Out: "/>
 
             <TextView
                 android:id="@+id/checkoutDate"
