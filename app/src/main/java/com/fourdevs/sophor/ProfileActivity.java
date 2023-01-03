@@ -36,6 +36,10 @@ public class ProfileActivity extends AppCompatActivity {
             Intent intent = new Intent(this, HotelBookingStatus.class);
             startActivity(intent);
         });
+        binding.tourBookingInfo.setOnClickListener(v->{
+            Intent intent = new Intent(this, TourBookingStatusActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void getUserData() {

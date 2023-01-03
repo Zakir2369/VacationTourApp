@@ -56,8 +56,9 @@ public class TopPlaceAdapter extends RecyclerView.Adapter<TopPlaceAdapter.TopPla
         }
         @SuppressLint("SetTextI18n")
         void setTourData(Tour tour) {
-
-            binding.placeImage.setImageBitmap(getBitmapFromEncodedString(tour.mainImage));
+            if(tour.mainImage!=null) {
+                binding.placeImage.setImageBitmap(getBitmapFromEncodedString(tour.mainImage));
+            }
             binding.placeName.setText(tour.name);
             binding.countryName.setText(tour.location);
             binding.price.setText("BDT "+tour.price);

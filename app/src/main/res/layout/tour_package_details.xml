@@ -6,10 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".TourPackageDetailsActivity">
 
+    <LinearLayout
+        android:id="@+id/profileTopLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/scrollView2"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        >
+
+        <ImageButton
+            android:id="@+id/profileBackBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:src="@drawable/ic_backarrow40"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Package Details"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            android:layout_marginStart="20dp"
+            android:textStyle="bold"
+            android:paddingVertical="10dp"
+            />
+
+
+    </LinearLayout>
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/profileTopLinear"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -190,7 +227,6 @@
                 app:layout_constraintBottom_toTopOf="@+id/tourtLocation"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 android:scaleType="fitXY"
                 android:src="@drawable/img1"
                 />
@@ -520,6 +556,7 @@
                 android:text="Book Package"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linear1" />
 
 
