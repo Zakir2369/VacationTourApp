@@ -16,7 +16,6 @@ public class ProfileActivity extends AppCompatActivity {
     private PreferenceManager preferenceManager;
     private FirebaseAuth mAuth;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,10 +42,12 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void getUserData() {
+
         binding.userName.setText(preferenceManager.getString(Constants.KEY_USER_NAME));
         binding.email.setText(preferenceManager.getString(Constants.KEY_EMAIL));
         binding.userEmail.setText(preferenceManager.getString(Constants.KEY_EMAIL));
         binding.userPhone.setText(preferenceManager.getString(Constants.KEY_PHONE));
+
     }
 
     private void logOut() {

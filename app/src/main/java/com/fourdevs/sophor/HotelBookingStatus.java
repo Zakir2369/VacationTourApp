@@ -60,6 +60,8 @@ public class HotelBookingStatus extends AppCompatActivity {
                             hotel.roomCount = document.getString(Constants.KEY_HOTEL_ROOM_COUNT);
                             hotel.customerStayingDay = document.getString(Constants.KEY_HOTEL_DAY_COUNT);
                             hotel.customerCost = document.getString(Constants.KEY_HOTEL_COST);
+                            hotel.hotelImage=document.getString(Constants.KEY_HOTEL_IMAGE);
+
                             hotelList.add(hotel);
 
                         }

@@ -3,27 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/background1"
     tools:context=".BusBookingActivity">
-
-    <LinearLayout
-        android:id="@+id/bus_linear1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/hotelTopBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             android:orientation="horizontal"
             android:background="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             >
 
             <ImageButton
@@ -38,35 +29,34 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:text="Choose Your Bus Ticket"
                 android:textColor="#fff"
                 android:textSize="20sp"
-                android:layout_marginStart="20dp"
                 android:textStyle="bold"
                 android:paddingVertical="10dp"
                 />
 
-
         </LinearLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:padding="10dp"
-        android:layout_height="160dp"
-        android:layout_gravity="center"
-        android:src="@drawable/bus4"
-        />
 
-    </LinearLayout>
+   <ImageView
+       android:id="@+id/busImg"
+       android:layout_width="match_parent"
+       android:layout_height="250dp"
+       android:padding="20dp"
+       android:src="@drawable/bus4"
+       app:layout_constraintTop_toBottomOf="@+id/hotelTopBar"
+       />
 
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/bus_linear1"
-        tools:layout_editor_absoluteX="0dp">
-
+        app:layout_constraintTop_toBottomOf="@id/busImg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -81,6 +71,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="20dp"
                 app:cardCornerRadius="5dp"
+                android:layout_marginVertical="10dp"
                 app:cardElevation="10dp">
 
                 <EditText
@@ -89,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
                     android:background="@drawable/search_bg"
-                    android:drawableLeft="@drawable/location"
+                    android:drawableLeft="@drawable/ic_location"
                     android:drawablePadding="10dp"
                     android:paddingVertical="8dp"
                     android:ems="10"
@@ -101,11 +92,6 @@
 
             </androidx.cardview.widget.CardView>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/sync" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -122,7 +108,7 @@
                     android:layout_marginHorizontal="10dp"
                     android:paddingVertical="8dp"
                     android:background="@drawable/search_bg"
-                    android:drawableLeft="@drawable/location"
+                    android:drawableLeft="@drawable/ic_location"
                     android:drawablePadding="10dp"
                     android:ems="10"
                     android:hint="Destination"
@@ -137,7 +123,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="25dp"
                 app:cardCornerRadius="5dp"
@@ -163,7 +149,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="dd/mm/year"
+                        android:text="3 January, 2023"
                         android:textAlignment="center"
                         android:textSize="15dp"
                         android:textStyle="bold" />
@@ -192,7 +178,7 @@
                 android:background="@drawable/btn"
                 android:backgroundTint="@color/colorPrimary"
                 android:drawablePadding="10dp"
-                android:paddingVertical="15dp"
+                android:paddingVertical="10dp"
                 android:text="Search Buses"
                 android:textAllCaps="false"
                 android:textColor="#fff"
