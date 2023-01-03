@@ -13,10 +13,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.fourdevs.sophor.adapter.AllHotelAdapter;
 import com.fourdevs.sophor.adapter.PopularHotelAdapter;
-import com.fourdevs.sophor.databinding.ActivityHotelBookingBinding;
 import com.fourdevs.sophor.listeners.HotelListener;
 import com.fourdevs.sophor.model.Hotel;
 import com.fourdevs.sophor.util.Constants;
+import com.fourdevs.sophor.databinding.ActivityHotelBookingBinding;
 
 import java.util.ArrayList;
 
@@ -32,7 +32,6 @@ public class HotelBooking extends AppCompatActivity implements HotelListener {
         binding = ActivityHotelBookingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getHotelDataFromFirebase();
-
         setListeners();
 
     }

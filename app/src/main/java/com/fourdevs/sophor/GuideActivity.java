@@ -6,6 +6,8 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.fourdevs.sophor.R;
+
 public class GuideActivity extends AppCompatActivity {
 
     Spinner spinner;

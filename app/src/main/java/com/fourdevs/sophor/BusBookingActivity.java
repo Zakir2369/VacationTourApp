@@ -4,9 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
-import com.fourdevs.sophor.databinding.ActivityBusBookingBinding;
-import com.fourdevs.sophor.databinding.ActivityProfileBinding;
 import com.fourdevs.sophor.util.PreferenceManager;
+import com.fourdevs.sophor.databinding.ActivityBusBookingBinding;
 
 
 public class BusBookingActivity extends AppCompatActivity {
